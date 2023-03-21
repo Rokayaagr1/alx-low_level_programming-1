@@ -7,21 +7,23 @@
 
 int main(void)
 {
-	int counter;
-	int countto = 50;
-	long a = 1;
-	long b = 2;
+    int counter;
+    int countto = 50;
+    long a = 1, b = 2;
 
-	for (counter = 1; counter <= (countto / 2); counter++)
-	{
-		printf("%li %li ", a, b);
-		a += b;
-		b += a;
-	}
-	if (countto % 2 == 1)
-		printf("%li", a);
+    printf("%li, %li, ", a, b);
+    for (counter = 3; counter <= countto; counter++)
+    {
+        long c = a + b;
+        printf("%li", c);
+        if (counter != countto)
+        {
+            printf(", ");
+        }
+        a = b;
+        b = c;
+    }
+    printf("\n");
 
-	printf("\n");
-
-	return (0);
+    return (0);
 }
