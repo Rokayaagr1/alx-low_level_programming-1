@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * main - print sum of even Fionacci sequence up to 4,000,000
