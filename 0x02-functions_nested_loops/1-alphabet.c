@@ -1,14 +1,20 @@
-#include <unistd.h>
+#include "holberton.h"
+
 /**
- * print_alphabet - prints the lowercase alphabet followed by a new line
+ * print_alphabet - prints lowercase alphabet
+ * Return: 0
  */
+
 void print_alphabet(void)
 {
-char letter = 'a';
-while (letter <= 'z')
-{
-_putchar(letter);
-letter++;
-}
-_putchar('\n');
+	char alpha;
+
+	alpha = 'a';
+
+	while (alpha <= 'z')
+	{
+		_putchar(alpha);
+		alpha++;
+	}
+	_putchar('\n');
 }
