@@ -4,24 +4,19 @@
  * main - print first 50 Fibonacci numbers
  * Return: 0
  */
-
-int main()
+int main(void)
 {
-    uint64_t a = 1, b = 2, c;
-    int i;
+    int count = 50;
+    long a = 1, b = 2, c;
 
-    // Print the first two Fibonacci numbers
-    putchar('1');
-    for (i = 0; i < 48; i++) {
-        putchar(',');
-        putchar(' ');
-        putchar(b / 10 + '0');
-        putchar(b % 10 + '0');
+    printf("%ld", a);
+    for (int i = 2; i <= count; i++) {
+        printf(", %ld", b);
         c = a + b;
         a = b;
         b = c;
     }
-    putchar('\n');
+    printf("\n");
 
     return 0;
 }
