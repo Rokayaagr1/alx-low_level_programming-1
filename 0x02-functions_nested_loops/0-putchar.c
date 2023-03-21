@@ -1,9 +1,18 @@
 #include <stdio.h>
-#include "main.h"
-int main() {
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
 printMessage();
-return 0;
+return (0);
 }
-void printMessage() {
+/**
+ * printMessage - Prints "_putchar"
+ */
+void printMessage(void)
+{
 printf("_putchar\n");
 }
