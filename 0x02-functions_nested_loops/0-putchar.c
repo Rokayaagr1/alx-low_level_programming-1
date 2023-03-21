@@ -1,19 +1,17 @@
-#include <stdio.h>
+#include <main.h>
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
+ * main - print _putchar, followed by new line
+ * Return: 0
  */
-void printMessage(void);
-int main(void)
-{
-printMessage();
-return (0);
-}
-/**
- * printMessage - Prints "_putchar"
- */
-void printMessage(void)
-{
-printf("_putchar\n");
+int main(void) {
+putchar('_');
+putchar('p');
+putchar('u');
+putchar('t');
+putchar('c');
+putchar('h');
+putchar('a');
+putchar('r');
+putchar('\n');
+return 0;
 }
