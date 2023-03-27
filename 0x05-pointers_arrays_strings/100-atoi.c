@@ -19,5 +19,5 @@ else if (result > 0)
 break;
 s++;
 }
-return sign * result;
+return (sign * result);
 }
