@@ -1,40 +1,30 @@
 #include "main.h"
+#include <stdio.h>
+
 /**
- * _atoi - convert a string to an integer.
- * @s: pointer to string
+ * main - check the code
  *
- * Return: integer value of string, or 0 if no digits are found
+ * Return: Always 0.
  */
-int _atoi(char *s)
+int main(void)
 {
-    int sign = 1;
-    int result = 0;
-    int digit;
+    int nb;
 
-    while (*s)
-    {
-        if (*s == '-')
-            sign = -sign;
-        else if (*s >= '0' && *s <= '9')
-        {
-            digit = *s - '0';
-
-            // Check for potential overflow
-            if (result > INT_MAX / 10 || (result == INT_MAX / 10 && digit > INT_MAX % 10))
-            {
-                if (sign == 1)
-                    return INT_MAX;
-                else
-                    return INT_MIN;
-            }
-
-            result = result * 10 + digit;
-        }
-        else if (result > 0)
-            break;
-
-        s++;
-    }
-
-    return sign * result;
+    nb = _atoi("98");
+    printf("%d\n", nb);
+    nb = _atoi("-402");
+    printf("%d\n", nb);
+    nb = _atoi("          ------++++++-----+++++--98");
+    printf("%d\n", nb);
+    nb = _atoi("214748364");
+    printf("%d\n", nb);
+    nb = _atoi("0");
+    printf("%d\n", nb);
+    nb = _atoi("Suite 402");
+    printf("%d\n", nb);
+    nb = _atoi("         +      +    -    -98 Battery Street; San Francisco, CA 94111 - USA             ");
+    printf("%d\n", nb);
+    nb = _atoi("---++++ -++ Sui - te -   402 #cisfun :)");
+    printf("%d\n", nb);
+    return (0);
 }
