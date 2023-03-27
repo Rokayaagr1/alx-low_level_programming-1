@@ -1,41 +1,33 @@
 #include "main.h"
 
 /**
- * _atoi - convert a string to an integer.
- * @s: pointer to string
- *
- * Return: integer value of string, or 0 if no digits are found
- */
-int _atoi(char *s)
+  * rev_string - Reverses a string
+  * @s: The string to be modified
+  *
+  * Return: void
+  */
+void rev_string(char *s)
 {
-    int sign = 1;
-    int result = 0;
-    int digit_found = 0;
+	int i, c, k;
+	char *a, aux;
 
-    while (*s)
-    {
-        if (*s == '-')
-            sign *= -1;
+	a = s;
 
-        if (*s >= '0' && *s <= '9')
-        {
-            digit_found = 1;
-            result = result * 10 + (*s - '0');
+	while (s[c] != '\0')
+	{
+		c++;
+	}
 
-            /* Check for overflow */
-            if (result < 0)
-            {
-                if (sign == 1)
-                    return 2147483647;
-                else
-                    return -2147483648;
-            }
-        }
-        else if (digit_found)
-            break;
+	for (k = 1; k < c; k++)
+	{
+		a++;
+	}
 
-        s++;
-    }
-
-    return (sign * result);
+	for (i = 0; i < (c / 2); i++)
+	{
+		aux = s[i];
+		s[i] = *a;
+		*a = aux;
+		a--;
+	}
 }
