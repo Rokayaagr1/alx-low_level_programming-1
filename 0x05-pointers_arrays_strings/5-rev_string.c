@@ -9,26 +9,25 @@
 int _atoi(char *s)
 {
     int sign = 1;
-    long result = 0;
+    int result = 0;
 
     while (*s)
     {
         if (*s == '-')
             sign = -sign;
         else if (*s >= '0' && *s <= '9')
-        {
-            // Check for overflow
-            if (sign == 1 && result * 10 + (*s - '0') > INT_MAX)
-                return INT_MAX;
-            if (sign == -1 && -result * 10 - (*s - '0') < INT_MIN)
-                return INT_MIN;
             result = result * 10 + (*s - '0');
-        }
         else if (result > 0)
             break;
 
         s++;
     }
 
-    return (int)(sign * result);
+    // check for integer overflow
+    if (result < INT_MIN)
+        return INT_MIN;
+    else if (result > INT_MAX)
+        return INT_MAX;
+
+    return sign * result;
 }
