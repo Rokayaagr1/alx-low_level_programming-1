@@ -1,41 +1,21 @@
-#include "main.h"
 #include <stdio.h>
-
-/**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
- */
+  /*
+   * write your line of code here...
+   * Remember:
+   * - you are not allowed to use a
+   * - you are not allowed to modify p
+   * - only one statement
+   * - you are not allowed to code anything else than this line of code
+   */
 int main(void)
 {
-	char s1[98];
-	char *p;
-	int i;
-
-	for (i = 0; i < 98 - 1; i++)
-	{
-		s1[i] = '*';
-	}
-	s1[i] = '\0';
-	printf("%s\n", s1);
-	p = _strncpy(s1, "First, solve the problem. Then, write the code\n", 5);
-	printf("%s\n", s1);
-	printf("%s\n", p);
-	p = _strncpy(s1, "First, solve the problem. Then, write the code\n", 90);
-	printf("%s", s1);
-	printf("%s", p);
-	for (i = 0; i < 98; i++)
-	{
-		if (i % 10)
-		{
-			printf(" ");
-		}
-		if (!(i % 10) && i)
-		{
-			printf("\n");
-		}
-		printf("0x%02x", s1[i]);
-	}
-	printf("\n");
-	return (0);
+  int n;
+  int a[5];
+  int *p;
+  a[2] = 1024;
+  p = &n;
+  *(p + 5) = 98;
+  /* ...so that this prints 98\n */
+  printf("a[2] = %d\n", a[2]);
+  return (0);
 }
