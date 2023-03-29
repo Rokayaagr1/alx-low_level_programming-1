@@ -1,81 +1,78 @@
 #include "main.h"
+#include <stdio.h>
+
+/**
+ * isPrintableASCII - determines if n is a printable ASCII char
+ * @n: integer
+ * Return: 1 if true, 0 if false
+ */
+int isPrintableASCII(int n)
+{
+	return (n >= 32 && n <= 126);
+}
+
+/**
+ * printHexes - print hex values for string b in formatted form
+ * @b: string to print
+ * @start: starting position
+ * @end: ending position
+ */
+void printHexes(char *b, int start, int end)
+{
+	int i = 0;
+
+	while (i < 10)
+	{
+		if (i < end)
+			printf("%02x", *(b + start + i));
+		else
+			printf("  ");
+		if (i % 2)
+			printf(" ");
+		i++;
+	}
+}
+
+/**
+ * printASCII - print ascii values for string b,
+ * formatted to replace nonprintable chars with '.'
+ * @b: string to print
+ * @start: starting position
+ * @end: ending position
+ */
+void printASCII(char *b, int start, int end)
+{
+	int ch, i = 0;
+
+	while (i < end)
+	{
+		ch = *(b + i + start);
+		if (!isPrintableASCII(ch))
+			ch = 46;
+		printf("%c", ch);
+		i++;
+	}
+}
 
 /**
  * print_buffer - prints a buffer
- * @b: buffer to print
+ * @b: string
  * @size: size of buffer
- *
- * Return: void
  */
 void print_buffer(char *b, int size)
 {
-    int i, j;
+	int start, end;
 
-    if (size <= 0)
-    {
-        _putchar('\n');
-        return;
-    }
-
-    for (i = 0; i < size; i += 10)
-    {
-        _puthex(i, 8);
-        _putchar(':');
-        for (j = i; j < i + 10; j += 2)
-        {
-            _putchar(' ');
-            if (j < size)
-                _puthex(*(b + j), 2);
-            else
-                _putstr("  ");
-            if (j + 1 < size)
-                _puthex(*(b + j + 1), 2);
-            else
-                _putstr("  ");
-        }
-        _putstr(" ");
-        for (j = i; j < i + 10 && j < size; j++)
-            _putchar(*(b + j) >= 32 && *(b + j) <= 126 ? *(b + j) : '.');
-        _putchar('\n');
-    }
-}
-
-/**
- * _puthex - prints a number in hexadecimal
- * @n: number to print
- * @len: minimum length of output
- *
- * Return: void
- */
-void _puthex(unsigned int n, int len)
-{
-    if (len > 1)
-        _puthex(n >> 4, len - 1);
-    _putchar("0123456789abcdef"[n & 0xf]);
-}
-
-/**
- * _putchar - writes a character to stdout
- * @c: character to write
- *
- * Return: 1 on success, -1 on error
- */
-int _putchar(char c)
-{
-    return (write(1, &c, 1) == 1 ? 1 : -1);
-}
-
-/**
- * _putstr - writes a string to stdout
- * @str: string to write
- *
- * Return: number of characters written
- */
-int _putstr(char *str)
-{
-    int i;
-
-    for (i = 0; *(str + i); i++)
-        _putchar(*(str + i));
-    return (i);
+	if (size > 0)
+	{
+		for (start = 0; start < size; start += 10)
+		{
+			end = (size - start < 10) ? size - start : 10;
+			printf("%08x: ", start);
+			printHexes(b, start, end);
+			printASCII(b, start, end);
+			printf("\n");
+		}
+	} else
+		printf("\n");
 }
