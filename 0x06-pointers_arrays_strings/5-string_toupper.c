@@ -7,17 +7,17 @@
  *Return: pointer to uppercase string.
  */
 
-char *string_toupper(char *s)
+char *string_toupper(char *str)
 {
-	int i = 0;
+	int i;
 
-	while (*(s + i) != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (*(s + i) >= 'a' && *(s + i) <= 'z')
+		if (str[i] >= 'a' && str[i] <= 'z')
 		{
-			*(s + i) = *(s + i) - 32;
+			str[i] = str[i] - 32;
 		}
-		i++;
 	}
-	return (s);
+
+	return (str);
 }
