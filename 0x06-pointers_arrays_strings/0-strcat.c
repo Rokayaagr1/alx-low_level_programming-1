@@ -1,30 +1,26 @@
 #include "main.h"
 /**
- *_strcat -  concatenates two strings
- *@dest: A pointer to an char that will be updated
- *@src: A pointer to an char that will be updated
- *Return: dest
+ * _strcat - concatenates two strings.
+ * @dest: string with concatenation
+ * @src: string to be concatenated
+ * Return: Always 0.
  */
-
 char *_strcat(char *dest, char *src)
 {
-	int i, j;
+	int lengthD, lengthS;
 
-	i = 0;
-	while (dest[i] != '\0') /*WHILE count character */
+	lengthD = 0;
+	lengthS = 0;
+
+	while (*(dest + lengthD) != '\0')
+		lengthD++;
+
+	while (*(src + lengthS) != '\0' && lengthD < 97)
 	{
-		i++;
+		*(dest + lengthD) = *(src + lengthS);
+		lengthD++;
+		lengthS++;
 	}
-
-	j = 0;
-	while (src[j] != '\0') /*WHILE concatenate dest with src*/
-	{
-		dest[i] = src[j];
-		j++;  /*sum j*/
-		i++; /**sum i*/
-	}
-
-	dest[i] = '\0'; /*the terminating null byte*/
-
+	*(dest + lengthD) = '\0';
 	return (dest);
 }
