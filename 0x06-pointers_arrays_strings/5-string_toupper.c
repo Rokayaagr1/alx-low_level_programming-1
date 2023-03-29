@@ -9,8 +9,15 @@
 
 char *string_toupper(char *s)
 {
-        while (*s) //if s exists will omit null terminator
-	    if (*s >= 'a' && *s <= 'z')
-	        *s = *s -'a' + 'A';
-	    s++;
+	int i = 0;
+
+	while (*(s + i) != '\0')
+	{
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
+		{
+			*(s + i) = *(s + i) - 32;
+		}
+		i++;
+	}
+	return (s);
 }
